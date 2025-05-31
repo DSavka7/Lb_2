@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мій Структурований Блог</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f2f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            display: flex;
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+        .main-content {
+            flex: 3;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .sidebar {
+            flex: 1;
+            padding: 20px;
+            background: #e9ecef;
+            border-radius: 8px;
+            margin-left: 20px;
+        }
+        h1 {
+            font-family: 'Georgia', serif;
+            color: #2c3e50;
+            text-align: center;
+            animation: fadeIn 2s ease-in;
+        }
+        h2 {
+            font-family: 'Verdana', sans-serif;
+            color: #34495e;
+        }
+        h3 {
+            font-family: 'Trebuchet MS', sans-serif;
+            color: #e74c3c;
+        }
+        p {
+            margin: 15px 0;
+        }
+        .font-serif {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 1.1em;
+        }
+        .font-sans {
+            font-family: 'Helvetica', Arial, sans-serif;
+            font-size: 1.05em;
+        }
+        .font-mono {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1em;
+        }
+        hr {
+            border: 0;
+            height: 2px;
+            background: linear-gradient(to right, #3498db, #e74c3c);
+            margin: 20px 0;
+        }
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+        ul li {
+            list-style-type: disc;
+        }
+        ol li {
+            list-style-type: decimal;
+        }
+        .sidebar a {
+            display: block;
+            margin: 10px 0;
+            color: #2980b9;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .sidebar a:hover {
+            color: #e74c3c;
+        }
+        .contact-form {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f9f9f9;
+            border-radius: 5px;
+        }
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .contact-form button {
+            background: #3498db;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .contact-form button:hover {
+            background: #2980b9;
+        }
+        footer {
+            background: #2c3e50;
+            color: #fff;
+            text-align: center;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 0 0 8px 8px;
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(-20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            .sidebar {
+                margin-left: 0;
+                margin-top: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="main-content">
+            <h1>Ласкаво просимо до мого блогу</h1>
+            <hr>
+
+            <h2>Про що цей блог</h2>
+            <p class="font-serif"><strong>Цей блог</strong> створений для обміну ідеями та думками на різні теми. Ми використовуємо <b>фізичне форматування</b> (наприклад, жирний шрифт) та <em>логічне форматування</em> (наприклад, курсив) для виділення важливих моментів.</p>
+            <p class="font-sans"><i>Тут</i> ви знайдете корисні статті про <u>технології</u>, <s>застарілі методи</s> та сучасні тренди. Наприклад, ми розглянемо <mark>нові можливості HTML5</mark>.</p>
+            <hr>
+
+            <h3>Чому варто читати цей блог</h3>
+            <p class="font-mono"><strong><em>Унікальність</em></strong>: Ми пропонуємо свіжий погляд на звичні речі. Кожен пост написаний із використанням різних стилів, таких як <b>жирний</b>, <i>курсив</i>, <u>підкреслений</u> або навіть <sup>верхній індекс</sup> для особливих моментів.</p>
+            <ul>
+                <li>Цікавий контент для всіх.</li>
+                <li>Практичні поради з <b>програмування</b>.</li>
+                <li>Огляди <u>нових технологій</u>.</li>
+            </ul>
+            <hr>
+
+            <h3>Плани на майбутнє</h3>
+            <p class="font-serif">У майбутньому ми плануємо додати більше інтерактивних елементів, таких як <code>&lt;canvas&gt;</code> для графіки або <samp>приклади коду</samp>. Ми також хочемо залучити читачів до створення контенту.</p>
+            <ol>
+                <li>Додати інтерактивні форми.</li>
+                <li>Створити галерею зображень.</li>
+                <li>Інтегрувати API для <b>динамічного контенту</b>.</li>
+            </ol>
+            <hr>
+
+            <h3>Залиште відгук</h3>
+            <div class="contact-form">
+                <form>
+                    <input type="text" placeholder="Ваше ім'я" required>
+                    <input type="email" placeholder="Ваш email" required>
+                    <textarea placeholder="Ваш відгук" rows="4" required></textarea>
+                    <button type="submit">Надіслати</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="sidebar">
+            <h3>Навігація</h3>
+            <a href="#home">Головна</a>
+            <a href="#about">Про блог</a>
+            <a href="#contact">Контакти</a>
+            <h3>Останні пости</h3>
+            <a href="#">Перший пост</a>
+            <a href="#">Другий пост</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>Автор: Савка Діана | © 2025 Усі права захищено</p>
+    </footer>
+</body>
+</html>
