@@ -3,191 +3,328 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Мій Структурований Блог</title>
+    <title>Блог Діани Савки</title>
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            background-color: #f0f2f5;
+        }
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f5f7fa;
             color: #333;
             line-height: 1.6;
         }
+        header {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: #fff;
+            text-align: center;
+            padding: 3rem 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            animation: slideIn 1s ease-out;
+        }
+        header p {
+            font-size: 1.2rem;
+            margin-top: 0.5rem;
+        }
+        nav {
+            background: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav a {
+            margin: 0 1.5rem;
+            text-decoration: none;
+            color: #2a5298;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #e63946;
+        }
         .container {
-            display: flex;
             max-width: 1200px;
-            margin: auto;
-            padding: 20px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            display: flex;
+            gap: 2rem;
         }
         .main-content {
             flex: 3;
-            padding: 20px;
             background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
         .sidebar {
             flex: 1;
-            padding: 20px;
-            background: #e9ecef;
-            border-radius: 8px;
-            margin-left: 20px;
-        }
-        h1 {
-            font-family: 'Georgia', serif;
-            color: #2c3e50;
-            text-align: center;
-            animation: fadeIn 2s ease-in;
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
         h2 {
-            font-family: 'Verdana', sans-serif;
-            color: #34495e;
+            font-family: 'Montserrat', sans-serif;
+            color: #2a5298;
+            margin-bottom: 1rem;
         }
         h3 {
-            font-family: 'Trebuchet MS', sans-serif;
-            color: #e74c3c;
+            font-family: 'Lora', serif;
+            color: #e63946;
+            margin: 1.5rem 0 1rem;
         }
         p {
-            margin: 15px 0;
+            margin: 1rem 0;
         }
         .font-serif {
-            font-family: 'Times New Roman', Times, serif;
-            font-size: 1.1em;
+            font-family: 'Lora', serif;
+            font-size: 1.1rem;
         }
         .font-sans {
-            font-family: 'Helvetica', Arial, sans-serif;
-            font-size: 1.05em;
+            font-family: 'Roboto', sans-serif;
+            font-size: 1rem;
         }
         .font-mono {
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 1em;
+            font-family: 'Inconsolata', monospace;
+            font-size: 0.95rem;
+            background: #f1f3f5;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
         }
         hr {
             border: 0;
-            height: 2px;
-            background: linear-gradient(to right, #3498db, #e74c3c);
-            margin: 20px 0;
+            height: 3px;
+            background: linear-gradient(to right, #1e3c72, #e63946);
+            margin: 2rem 0;
         }
         ul, ol {
-            margin: 15px 0;
-            padding-left: 30px;
+            margin: 1rem 0;
+            padding-left: 2rem;
         }
         ul li {
-            list-style-type: disc;
+            list-style-type: square;
+            margin-bottom: 0.5rem;
         }
         ol li {
-            list-style-type: decimal;
+            margin-bottom: 0.5rem;
+        }
+        .post {
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .post-meta {
+            font-size: 0.9rem;
+            color: #6c757d;
+            margin-bottom: 0.5rem;
+        }
+        .btn {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: #2a5298;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        .btn:hover {
+            background: #1e3c72;
         }
         .sidebar a {
             display: block;
-            margin: 10px 0;
-            color: #2980b9;
+            margin: 0.5rem 0;
+            color: #2a5298;
             text-decoration: none;
-            font-weight: bold;
+            font-weight: 500;
         }
         .sidebar a:hover {
-            color: #e74c3c;
+            color: #e63946;
         }
         .contact-form {
-            margin-top: 20px;
-            padding: 15px;
-            background: #f9f9f9;
-            border-radius: 5px;
+            margin-top: 2rem;
         }
         .contact-form input, .contact-form textarea {
             width: 100%;
-            margin: 10px 0;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
+            padding: 0.75rem;
+            margin: 0.5rem 0;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            font-family: 'Roboto', sans-serif;
         }
         .contact-form button {
-            background: #3498db;
+            background: #e63946;
             color: #fff;
-            padding: 10px 20px;
+            padding: 0.75rem 1.5rem;
             border: none;
-            border-radius: 4px;
+            border-radius: 5px;
             cursor: pointer;
+            transition: background 0.3s;
         }
         .contact-form button:hover {
-            background: #2980b9;
+            background: #c5303b;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+        }
+        .modal-content {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            max-width: 500px;
+            text-align: center;
+        }
+        .modal-content button {
+            margin-top: 1rem;
+            background: #2a5298;
+            color: #fff;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
         }
         footer {
-            background: #2c3e50;
+            background: #1e3c72;
             color: #fff;
             text-align: center;
-            padding: 15px;
-            margin-top: 20px;
-            border-radius: 0 0 8px 8px;
+            padding: 1.5rem;
+            margin-top: 2rem;
         }
-        @keyframes fadeIn {
-            0% { opacity: 0; transform: translateY(-20px); }
-            100% { opacity: 1; transform: translateY(0); }
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         @media (max-width: 768px) {
             .container {
                 flex-direction: column;
             }
             .sidebar {
-                margin-left: 0;
-                margin-top: 20px;
+                margin-top: 2rem;
+            }
+            header h1 {
+                font-size: 1.8rem;
             }
         }
     </style>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Playfair+Display:wght@700&family=Montserrat:wght@500&family=Lora&family=Inconsolata&display=swap" rel="stylesheet">
 </head>
 <body>
+    <header>
+        <h1>Блог Діани Савки</h1>
+        <p>Місце, де ідеї оживають</p>
+    </header>
+
+    <nav>
+        <a href="#home">Головна</a>
+        <a href="#about">Про мене</a>
+        <a href="#contact">Контакти</a>
+    </nav>
+
     <div class="container">
         <div class="main-content">
-            <h1>Ласкаво просимо до мого блогу</h1>
+            <div class="post">
+                <h2>Вступ до мого блогу</h2>
+                <div class="post-meta">Опубліковано: 31 травня 2025 | Автор: Савка Діана</div>
+                <p class="font-serif"><strong>Ласкаво просимо!</strong> Цей блог створений для того, щоб ділитися <em>ідеями</em>, <b>досвідом</b> та <u>новими знаннями</u>. Ми використовуємо <mark>сучасні технології</mark> для створення контенту, який надихає.</p>
+                <p class="font-sans">Тут ви знайдете статті про <i>технології</i>, <s>застарілі підходи</s> та <sup>нові тренди</sup>. Наприклад, ми розглянемо <code>HTML5</code> та <samp>його можливості</samp>.</p>
+                <a href="#" class="btn">Читати далі</a>
+            </div>
             <hr>
 
-            <h2>Про що цей блог</h2>
-            <p class="font-serif"><strong>Цей блог</strong> створений для обміну ідеями та думками на різні теми. Ми використовуємо <b>фізичне форматування</b> (наприклад, жирний шрифт) та <em>логічне форматування</em> (наприклад, курсив) для виділення важливих моментів.</p>
-            <p class="font-sans"><i>Тут</i> ви знайдете корисні статті про <u>технології</u>, <s>застарілі методи</s> та сучасні тренди. Наприклад, ми розглянемо <mark>нові можливості HTML5</mark>.</p>
+            <div class="post">
+                <h2>Чому я почала цей блог</h2>
+                <div class="post-meta">Опубліковано: 30 травня 2025 | Автор: Савка Діана</div>
+                <p class="font-mono"><strong><em>Мета</em></strong>: Створити платформу для обміну знаннями. Ми використовуємо <b>жирний текст</b> для акценту, <i>курсив</i> для емоцій та <u>підкреслення</u> для важливих деталей.</p>
+                <ul>
+                    <li>Надихати читачів.</li>
+                    <li>Ділитися <b>технічними знаннями</b>.</li>
+                    <li>Створювати <u>корисний контент</u>.</li>
+                </ul>
+                <a href="#" class="btn">Читати далі</a>
+            </div>
             <hr>
 
-            <h3>Чому варто читати цей блог</h3>
-            <p class="font-mono"><strong><em>Унікальність</em></strong>: Ми пропонуємо свіжий погляд на звичні речі. Кожен пост написаний із використанням різних стилів, таких як <b>жирний</b>, <i>курсив</i>, <u>підкреслений</u> або навіть <sup>верхній індекс</sup> для особливих моментів.</p>
-            <ul>
-                <li>Цікавий контент для всіх.</li>
-                <li>Практичні поради з <b>програмування</b>.</li>
-                <li>Огляди <u>нових технологій</u>.</li>
-            </ul>
-            <hr>
-
-            <h3>Плани на майбутнє</h3>
-            <p class="font-serif">У майбутньому ми плануємо додати більше інтерактивних елементів, таких як <code>&lt;canvas&gt;</code> для графіки або <samp>приклади коду</samp>. Ми також хочемо залучити читачів до створення контенту.</p>
+            <h3>Мої плани</h3>
+            <p class="font-serif">У майбутньому я планую додати більше інтерактивних функцій, таких як <code>canvas</code> для візуалізацій або <samp>динамічний контент</samp> через API.</p>
             <ol>
-                <li>Додати інтерактивні форми.</li>
-                <li>Створити галерею зображень.</li>
-                <li>Інтегрувати API для <b>динамічного контенту</b>.</li>
+                <li>Інтерактивні форми зворотного зв’язку.</li>
+                <li>Галерея зображень.</li>
+                <li>Інтеграція з <b>зовнішніми сервісами</b>.</li>
             </ol>
             <hr>
 
             <h3>Залиште відгук</h3>
-            <div class="contact-form">
-                <form>
-                    <input type="text" placeholder="Ваше ім'я" required>
-                    <input type="email" placeholder="Ваш email" required>
-                    <textarea placeholder="Ваш відгук" rows="4" required></textarea>
-                    <button type="submit">Надіслати</button>
-                </form>
-            </div>
+            <form id="contactForm" class="contact-form">
+                <input type="text" id="name" placeholder="Ваше ім'я" required>
+                <input type="email" id="email" placeholder="Ваш email" required>
+                <textarea id="message" placeholder="Ваш відгук" rows="5" required></textarea>
+                <button type="submit">Надіслати</button>
+            </form>
         </div>
 
         <div class="sidebar">
             <h3>Навігація</h3>
             <a href="#home">Головна</a>
-            <a href="#about">Про блог</a>
+            <a href="#about">Про мене</a>
             <a href="#contact">Контакти</a>
             <h3>Останні пости</h3>
-            <a href="#">Перший пост</a>
-            <a href="#">Другий пост</a>
+            <a href="#">Вступ до мого блогу</a>
+            <a href="#">Чому я почала цей блог</a>
+        </div>
+    </div>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <p id="modalMessage"></p>
+            <button onclick="closeModal()">Закрити</button>
         </div>
     </div>
 
     <footer>
         <p>Автор: Савка Діана | © 2025 Усі права захищено</p>
     </footer>
+
+    <script>
+        const form = document.getElementById('contactForm');
+        const modal = document.getElementById('modal');
+        const modalMessage = document.getElementById('modalMessage');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            if (name && email && message) {
+                modalMessage.textContent = `Дякуємо, ${name}! Ваш відгук надіслано.`;
+                modal.style.display = 'flex';
+                form.reset();
+            } else {
+                modalMessage.textContent = 'Будь ласка, заповніть усі поля.';
+                modal.style.display = 'flex';
+            }
+        });
+
+        function closeModal() {
+            modal.style.display = 'none';
+        }
+    </script>
 </body>
 </html>
